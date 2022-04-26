@@ -35,23 +35,15 @@
 
 #include <openni2/OpenNI.h>
 
+#include <functional>
+#include <sensor_msgs/msg/image.hpp>
+#include <string>
 #include <thread>
+#include <vector>
 
-// #include "OniCTypes.h"
 #include "ros2_astra_camera/astra_wrapper/astra_device_type.h"
 #include "ros2_astra_camera/astra_wrapper/astra_exception.h"
 #include "ros2_astra_camera/astra_wrapper/astra_video_mode.h"
-// #include <boost/shared_ptr.hpp>
-// #include <boost/cstdint.hpp>
-// #include <boost/bind.hpp>
-// #include <boost/function.hpp>
-// #include <boost/thread.hpp>
-// #include <boost/chrono.hpp>
-// #include <boost/bind.hpp>
-
-#include <sensor_msgs/msg/image.hpp>
-#include <string>
-#include <vector>
 
 namespace openni {
 class Device;

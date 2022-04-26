@@ -165,7 +165,7 @@ CameraDriver::dynamicParametersCallback(
   result.successful = true;
   result.reason = "success";
 
-  std::scoped_lock<std::recursive_mutex> lock(mutex_);
+  std::lock_guard<std::recursive_mutex> lock(mutex_);
   old_config_ = config_;
 
   // if ((level & kReconfigureClose) == kReconfigureClose) {
@@ -426,7 +426,7 @@ bool CameraDriver::Start() {
 }
 
 void CameraDriver::Stop() {
-  std::scoped_lock<std::recursive_mutex> lock(mutex_);
+  std::lock_guard<std::recursive_mutex> lock(mutex_);
 
   assert(state_ != kInitial);
 
@@ -447,7 +447,7 @@ void CameraDriver::ImageCallback(uvc_frame_t *frame) {
     timestamp = this->now();
   }
 
-  std::scoped_lock<std::recursive_mutex> lock(mutex_);
+  std::lock_guard<std::recursive_mutex> lock(mutex_);
 
   assert(state_ == kRunning);
   assert(rgb_frame_);
@@ -617,7 +617,7 @@ void CameraDriver::ImageCallback(uvc_frame_t *frame) {
 void CameraDriver::AutoControlsCallback(
     enum uvc_status_class status_class, int event, int selector,
     enum uvc_status_attribute status_attribute, void *data, size_t data_len) {
-  std::scoped_lock<std::recursive_mutex> lock(mutex_);
+  std::lock_guard<std::recursive_mutex> lock(mutex_);
 
   printf(
       "Controls callback. class: %d, event: %d, selector: %d, attr: %d, "
