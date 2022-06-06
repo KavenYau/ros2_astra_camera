@@ -60,5 +60,14 @@ ros2 launch ros2_astra_camera astra_rviz.py
 ## Known Issues
 - Pointcloud messages are not published smoothly when running as component.
 
+- DeviceOpen using default: no devices found
+   ```log
+   No matching device found.... waiting for devices
+   ```
+  setting LD_LIBRARY_PATH environment variable to the right path of libOpenNI2.so. e.g. 
+   ```sh
+  export LD_LIBRARY_PATH=~/ros2_ws/src/ros2_astra_camera/ros2_astra_camera/lib/openni2_redist/arm64
+  ```
+
 ## References
 https://github.com/orbbec/ros_astra_camera
