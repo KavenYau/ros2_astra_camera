@@ -66,7 +66,7 @@ ros2 launch ros2_astra_camera astra_rviz.py
    ```
   setting LD_LIBRARY_PATH environment variable to the right path of libOpenNI2.so. e.g. 
    ```sh
-  export LD_LIBRARY_PATH=~/ros2_ws/src/ros2_astra_camera/ros2_astra_camera/lib/openni2_redist/arm64
+  export LD_LIBRARY_PATH=~/ros2_ws/src/ros2_astra_camera/ros2_astra_camera/lib/openni2_redist/arm64:$LD_LIBRARY_PATH
   ```
 
 ## References
