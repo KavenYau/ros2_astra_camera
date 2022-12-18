@@ -8,8 +8,8 @@
 #include <std_msgs/msg/header.hpp>
 
 #define libuvc_VERSION                                         \
-  (libuvc_VERSION_MAJOR * 10000 + libuvc_VERSION_MINOR * 100 + \
-   libuvc_VERSION_PATCH)
+  (LIBUVC_VERSION_MAJOR * 10000 + LIBUVC_VERSION_MINOR * 100 + \
+   LIBUVC_VERSION_PATCH)
 
 namespace ros2_astra_camera {
 CameraDriver::CameraDriver(const rclcpp::NodeOptions &options)
