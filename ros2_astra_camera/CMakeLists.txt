@@ -17,7 +17,7 @@ find_package(rclcpp_components REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(camera_info_manager REQUIRED)
-find_package(libuvc REQUIRED)
+pkg_search_module(LIBUVC REQUIRED libuvc)
 
 set(dependencies astra_msgs rclcpp rclcpp_components sensor_msgs
                  image_transport camera_info_manager)
@@ -78,7 +78,7 @@ rclcpp_components_register_nodes(astra_driver "ros2_astra_camera::AstraDriver")
 add_library(camera_driver SHARED src/camera_driver.cpp)
 target_compile_definitions(camera_driver PRIVATE "COMPOSITION_BUILDING_DLL")
 ament_target_dependencies(camera_driver ${dependencies})
-target_link_libraries(camera_driver astra_wrapper ${libuvc_LIBRARIES})
+target_link_libraries(camera_driver astra_wrapper ${LIBUVC_LIBRARIES})
 rclcpp_components_register_nodes(camera_driver
                                  "ros2_astra_camera::CameraDriver")
 
