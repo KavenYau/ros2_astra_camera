@@ -33,7 +33,7 @@
 #ifndef ASTRA_DEVICE_INFO_H_
 #define ASTRA_DEVICE_INFO_H_
 
-// #include <boost/cstdint.hpp>
+#include <cstdint>
 #include <ostream>
 
 namespace astra_camera {
